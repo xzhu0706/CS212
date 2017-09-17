@@ -107,7 +107,7 @@ namespace main_savitch_2C
 		{
 			if (s1.length() == 0)
 				return true;
-			if (s1.sum() == s2.sum() && s1.minimum() == s2.minimum() && s1.maximum() == s2.maximum())
+			if (s1.sum() == s2.sum() && s1.mean() == s2.mean() && s1.minimum() == s2.minimum() && s1.maximum() == s2.maximum())
 				return true;
 		}
 		return false;
