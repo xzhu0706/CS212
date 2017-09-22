@@ -17,17 +17,17 @@ namespace main_savitch_2C
 	void statistician::next(double r)
 	{
 		total += r;
-		count++;
-		if (r < tinyest)
+		if (count==0)
 		{
 			tinyest = r;
-			if (count == 1) largest = r;
-		}
-		if (r > largest) 
-		{
 			largest = r;
-			if (count == 1) tinyest = r;
 		}
+		else 
+		{
+			if (r < tinyest) tinyest = r;
+			if (r > largest) largest = r;
+		}
+		count++;
 	}
 
 	void statistician::reset( )
@@ -68,12 +68,8 @@ namespace main_savitch_2C
 
 	statistician operator+(const statistician& s1, const statistician& s2)
 	{
-		if (s1.count == 0 && s2.count == 0)
-			return statistician();
-		if (s1.count == 0 && s2.count > 0) 
-			return statistician(s2);
-		if (s1.count > 0 && s2.count == 0)
-			return statistician(s1);
+		if (s1.count == 0) return statistician(s2);
+		if (s2.count == 0) return statistician(s1);
 		statistician s3;
 		s3.total = s1.total + s2.total;
 		s3.count = s1.count + s2.count;
