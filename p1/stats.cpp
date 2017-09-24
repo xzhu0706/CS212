@@ -6,12 +6,10 @@
 
 namespace main_savitch_2C
 {
-	statistician::statistician( )
+	statistician::statistician( )             
 	{
 		total = 0;
 		count = 0;
-		tinyest = 0;
-		largest = 0;
 	}
 
 	void statistician::next(double r)
