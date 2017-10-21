@@ -1,3 +1,14 @@
+/* Xiaohong Zhu
+ * CS212   10/21/2017
+ *    Invaraiants:
+ *      1. The member varaiable used indicates how many items are stored
+ *         in the sequence.
+ *      2. The items are stored in their sequence order in the array from 
+ *         data[0] to data[used-1], and we don't care what is stored in the
+ *         rest of the indexes.
+ *      3. If there is a current item, then it lies in data[current_index];
+ *         if there is no current item, then current_index equals used.
+ * */
 #include "sequence1.h"
 #include <cassert>
 
@@ -25,16 +36,15 @@ namespace main_savitch_3
 		assert(size() < CAPACITY);
 		if (!is_item())
 		{
-			for (size_type i=used; i>0; i--)
+			current_index = 0;
+			for (size_type i = used; i > current_index; i--)
 				data[i] = data[i-1];
-			data[0] = entry;
-			current_index=0;
 		} else
 		{
-			for (size_type i=used; i>current_index; i--)
+			for (size_type i = used; i > current_index; i--)
 				data[i] = data[i-1];
-			data[current_index] = entry;
 		}
+		data[current_index] = entry;
 		used++;
 	}
 
@@ -42,24 +52,23 @@ namespace main_savitch_3
 	{
 		assert(size() < CAPACITY);
 		if (!is_item())
-		{
-			data[used] = entry;
 			current_index = used;
-		} else
+		else 
 		{
-			for (size_type i=used; i>current_index+1; i--)
+			current_index++;
+			for (size_type i = used; i > current_index; i--)
 				data[i] = data[i-1];
-			data[++current_index] = entry;
 		}
+		data[current_index] = entry;
 		used++;
 	}
 
 	void sequence::remove_current()
 	{
 		assert(is_item());
+		used--;
 		for (size_type i = current_index; i < used; i++)
 			data[i] = data[i+1];
-		used--;
 	}
 	
 	sequence::size_type sequence::size() const
@@ -69,7 +78,7 @@ namespace main_savitch_3
 
 	bool sequence::is_item() const
 	{
-		return (current_index<used && used<=CAPACITY);
+		return (current_index < used);
 	}
 
 	sequence::value_type sequence::current() const
