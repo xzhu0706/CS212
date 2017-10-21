@@ -1,6 +1,6 @@
 /* Xiaohong Zhu
  * CS212   10/21/2017
- *    Invaraiants:
+ *    Invariants:
  *      1. The member varaiable used indicates how many items are stored
  *         in the sequence.
  *      2. The items are stored in their sequence order in the array from 
@@ -34,16 +34,10 @@ namespace main_savitch_3
 	void sequence::insert(const value_type& entry)
 	{
 		assert(size() < CAPACITY);
-		if (!is_item())
-		{
+		if (!is_item()) 
 			current_index = 0;
-			for (size_type i = used; i > current_index; i--)
-				data[i] = data[i-1];
-		} else
-		{
-			for (size_type i = used; i > current_index; i--)
-				data[i] = data[i-1];
-		}
+		for (size_type i = used; i > current_index; i--)
+			data[i] = data[i-1];
 		data[current_index] = entry;
 		used++;
 	}
