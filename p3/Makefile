@@ -1,6 +1,7 @@
 CFLAGS = -O
 CC = g++ 
 
+
 test: rec_fun_test.o rec_fun.o
 		$(CC) $(CFLAGS) -o test rec_fun_test.o rec_fun.o
 

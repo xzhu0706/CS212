@@ -1,8 +1,7 @@
-//#include <strclass.h>
 #include <string>
-#include "rec_fun.h"
 #include <iostream>
-using namespace std;
+using std::cout;
+using std::endl;
 
 int main()
 {
@@ -12,8 +11,8 @@ int main()
 //	cout<<bears(250)<<endl;
 //	cout<<bears(500)<<endl;
 //	cout<<bears(1000)<<endl;
-	pattern (cout,8,4);
+	pattern(cout,8,4);
 	cout<<endl;
-	pattern (cout,16,4);
+	pattern(cout,16,4);
 	return 0;
 }

@@ -2,8 +2,8 @@
  * CS211 Assignment 3
  * 11/9/2017 */
 #include <string>
-#include "rec_fun.h"
 #include <iostream>
+using namespace std;
 
 void triangle (ostream& outs, unsigned int m, unsigned int n)
 {
@@ -25,7 +25,7 @@ void numbers (ostream& outs, const string& prefix, unsigned int levels)
 	else {
 		string s;
 		char c;
-		for (int i=1; i<10; i++)
+	for (int i=1; i<10; i++)
 		{
 			c = i + '0';
 			s = (prefix + c) + '.';
@@ -63,5 +63,20 @@ void pattern (ostream& outs, unsigned int n, unsigned int i)
 		outs << endl;
 		pattern (outs, n/2, i+n);
 	}
+}
+
+int main()
+{
+	//testing the functions
+	triangle(cout, 3, 5);
+	string str = "CHAU";
+	numbers(cout, str, 2);
+	cout<<bears(250)<<endl;
+	cout<<bears(500)<<endl;
+	cout<<bears(1000)<<endl;
+	pattern(cout,8,4);
+        cout<<endl;
+        pattern(cout,16,4);
+        return 0;
 }
 
