@@ -1,15 +1,10 @@
-CFLAGS = -O
-CC = g++ 
+main = rec_fun
+CC = g++
+CFLAGS = -Wall
 
+$(main) : $(main).cpp
+		$(CC) $(CFLAGS) $< -o $(main)
 
-test: rec_fun_test.o rec_fun.o
-		$(CC) $(CFLAGS) -o test rec_fun_test.o rec_fun.o
-
-rec_fun_test.o: rec_fun_test.cpp
-		$(CC) $(CFLAGS) -c rec_fun_test.cpp
-
-rec_fun.o: rec_fun.cpp
-		$(CC) $(CFLAGS) -c rec_fun.cpp
-
-clean:
-		rm -f core *.o
+.PHONY : clean
+clean :
+		rm -f $(main)

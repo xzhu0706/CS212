@@ -1,5 +1,5 @@
 /* Xiaohong Zhu
- * CS211 Assignment 3
+ * CS212 Assignment 3
  * 11/9/2017 */
 #include <string>
 #include <iostream>
@@ -25,7 +25,7 @@ void numbers (ostream& outs, const string& prefix, unsigned int levels)
 	else {
 		string s;
 		char c;
-	for (int i=1; i<10; i++)
+		for (int i=1; i<10; i++)
 		{
 			c = i + '0';
 			s = (prefix + c) + '.';
@@ -72,11 +72,11 @@ int main()
 	string str = "CHAU";
 	numbers(cout, str, 2);
 	cout<<bears(250)<<endl;
-	cout<<bears(500)<<endl;
 	cout<<bears(1000)<<endl;
+	cout<<bears(98)<<endl;
 	pattern(cout,8,4);
-        cout<<endl;
-        pattern(cout,16,4);
-        return 0;
+	cout<<endl;
+    pattern(cout,16,4);
+    return 0;
 }
 
