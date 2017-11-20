@@ -50,19 +50,13 @@ bool bears (int n)
 	return false;
 }
 
-void pattern (ostream& outs, unsigned int n, unsigned int i)
+void pattern(ostream& outs, unsigned int n, unsigned int i)
 {
-	if(n==1) {
-		for (int k = 0; k < i; k++) outs << ' ';
-		outs << "*" <<endl;
-	}
-	else { 
-		pattern (outs, n/2, i);
-		for (int k = 0; k < i; k++) outs << ' ';
-		for (int k = 0; k < n; k++) outs << "* ";
-		outs << endl;
-		pattern (outs, n/2, i+n);
-	}
+	if (n>1) pattern(outs,n/2,i);
+	for (int k=0; k<i; k++) outs<<' ';
+	for (int k=0; k<n; k++) outs<<"* ";
+	outs<<endl;
+	if (n>1) pattern(outs,n/2, i+n);
 }
 
 int main()
@@ -76,7 +70,7 @@ int main()
 	cout<<bears(98)<<endl;
 	pattern(cout,8,4);
 	cout<<endl;
-    pattern(cout,16,4);
-    return 0;
+	pattern(cout,16,4);
+	return 0;
 }
 
